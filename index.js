@@ -7,6 +7,7 @@ for(var i = 0; i<length;i++){
    var buttonInnerHTML = this.innerHTML;
 
      playSound(buttonInnerHTML);
+     buttonAnimation(buttonInnerHTML);
 
 
 });
@@ -17,6 +18,7 @@ for(var i = 0; i<length;i++){
 
 document.addEventListener("keydown",function(event){
      playSound(event.key);
+     buttonAnimation(event.key);
 });
 
 
@@ -65,4 +67,13 @@ function playSound(key){
 
   }
 
+}
+
+function buttonAnimation(currentKey){
+    var button = document.querySelector("." + currentKey);
+    button.classList.add("pressed");
+
+    setTimeout(function(){
+      button.classList.remove("pressed");
+    },150);
 }
